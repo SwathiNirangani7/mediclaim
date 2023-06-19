@@ -1,5 +1,6 @@
 pipeline {
-   agent any
+   aagent any
+	stages {
       stage('Git Checkout') {
          steps {
             git 'https://github.com/SwathiNirangani7/mediclaim.git'
@@ -38,5 +39,8 @@ pipeline {
             emailext body: "${currentBuild.currentResult}: Project Name : ${env.JOB_NAME} Build ID : ${env.BUILD_NUMBER}\n\n Approval Link :  ${env.BUILD_URL}", recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
     }
+}
+}
+
 
 
