@@ -6,9 +6,8 @@ pipeline {
             git 'https://github.com/SwathiNirangani7/mediclaim.git'
 		}
 	}
-	stage('Build') {
+	stage('Sonar Build') {
 		steps {
-			withSonarQubeEnv('SonarQube') {
 				sh 'mvn clean verify sonar:sonar -Dmaven.test.skip=true'
 			}
 		}
